@@ -1,0 +1,28 @@
+* { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+body { background: #222; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: 'Courier New', Courier, monospace; overflow: hidden; touch-action: none; }
+#game-container { position: relative; width: 800px; max-width: 100%; aspect-ratio: 800/480; background: #5C94FC; box-shadow: 0 0 20px #000; overflow: hidden; }
+canvas { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
+
+#hud { position: absolute; top: 10px; left: 10px; right: 10px; display: flex; justify-content: space-between; color: white; text-shadow: 2px 2px 0 #000; font-weight: bold; font-size: 16px; z-index: 10; }
+.hud-item { text-align: center; }
+
+.menu { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; z-index: 20; display: none; }
+.menu.active { display: flex; }
+.menu h1 { color: #FFCE00; text-shadow: 4px 4px 0 #D03800; font-size: 48px; margin-bottom: 20px; text-align: center;}
+.menu p { font-size: 20px; margin-bottom: 20px; animation: blink 1s infinite; }
+.btn-group { display: flex; gap: 10px; }
+button { padding: 10px 20px; font-family: inherit; font-weight: bold; background: #D03800; color: white; border: 4px solid #FFCE00; cursor: pointer; border-radius: 8px;}
+
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+#mobile-controls { display: none; position: absolute; bottom: 20px; left: 10px; right: 10px; justify-content: space-between; z-index: 30; }
+.d-pad, .action-pad { display: flex; gap: 15px; }
+#mobile-controls button { width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,0.3); border: 2px solid white; color: white; font-size: 16px; font-weight: bold; }
+#mobile-controls button:active { background: rgba(255,255,255,0.6); }
+
+@media (max-width: 800px) {
+    #game-container { height: 100vh; width: 100vw; aspect-ratio: auto; }
+    #mobile-controls { display: flex; }
+    #hud { font-size: 12px; top: 5px; }
+    .menu h1 { font-size: 32px; }
+}
